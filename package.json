@@ -1,0 +1,12 @@
+{
+  "name": "sww",
+  "version": "1.0.0",
+  "description": "Desafío de creación de servidor par manejo de archivos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Dario Valenzuela",
+  "license": "ISC"
+}
