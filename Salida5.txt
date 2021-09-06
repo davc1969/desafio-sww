@@ -1,0 +1,3 @@
+porque ser� que no borra?
+
+claro, porque Node no ejecuta acciones en el lado del cliente
