@@ -20,7 +20,10 @@ http.createServer( (req, res) => {  //función anónima que tiene un request y u
     const nuevoNombre = params.nuevoNombre;
 
     if (req.url.includes("/crear")) {
-        fs.writeFile(archivo, contenido, "utf8", () => {
+        const fecha = new Date();
+        fechaFormato = `${fecha.getDate().toString().padStart(2, "0")}/${fecha.getMonth().toString().padStart(2, "0")}/${fecha.getFullYear().toString()}\n`;
+        
+        fs.writeFile(archivo, fechaFormato + contenido, "utf8", () => {
             console.log(`Archivo ${archivo} creado sin problemas`);
         })
     }
@@ -42,7 +45,7 @@ http.createServer( (req, res) => {  //función anónima que tiene un request y u
                 console.log("Nada, no se pudo renombrar");
                 throw err;
             }
-            console.log("Ya se renombró");
+            console.log(`El archivo ${nombre} ahora se llama ${nuevoNombre}.`);
         })
     }
 
@@ -52,7 +55,10 @@ http.createServer( (req, res) => {  //función anónima que tiene un request y u
                 console.log("No se borró, no entiendo porqué");
                 throw err;
             };
-            console.log("Qué crees, ya se borró");
+            console.log(`Tu solicitud para eliminar el archivo ${archivo} se está procesando`);
+            setTimeout( () => {
+                console.log(`${archivo} ya fue borrado`);
+            }, 3000);
         })
     }
 })
